@@ -3,35 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Clean Content Page</title>
-    <!-- This line automatically makes plain text look beautiful and modern -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Virtual Production & VR Streaming Masterclass</title>
+    <!-- Premium Google Fonts for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM (Dark Grey & Bluish-Green) --- */
+        :root {
+            --bg-main: #0f1115;       /* Deep dark grey background */
+            --bg-card: #161a22;       /* Slightly lighter dark grey for containers */
+            --text-main: #e2e8f0;     /* Crisp off-white text */
+            --text-muted: #94a3b8;    /* Muted grey for descriptions */
+            --accent: #00f2fe;        /* Vibrant bluish-green / cyan glow */
+            --accent-gradient: linear-gradient(135deg, #00b4d8, #00f2fe);
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        /* Centered, narrow content column inspired by Aurelius Tjin's layout */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY & HEADINGS --- */
+        h1, h2, h3 {
+            color: #fff;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.04em;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        /* Glowing bluish-green text highlight */
+        .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2e3748, transparent);
+            margin: 48px 0;
+        }
+
+        /* --- INLINE VR GRAPHICS (SVG) --- */
+        .graphic-container {
+            display: flex;
+            justify-content: center;
+            margin: 32px 0;
+        }
+
+        .vr-svg {
+            width: 80px;
+            height: 80px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.3));
+        }
+
+        /* --- VIDEO PLAYER CONTAINER --- */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid #2e3748;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin: 32px 0;
+        }
+
+        .video-wrapper iframe, 
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- FEATURE/TECHNICAL CARDS --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid #222936;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* --- CALL TO ACTION BUTTON --- */
+        .btn-container {
+            text-align: center;
+            margin: 48px 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: #0f1115;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 242, 254, 0.4);
+            opacity: 0.95;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Page</h1>
-        <p>A simple, distraction-free space to share content anonymously.</p>
-    </header>
-
-    <main>
-        <p>This is where you can type your long-form text, descriptions, or sales copy. It automatically formats to look clean and highly readable, just like the sales pages you like.</p>
-
-        <hr>
-
-        <!-- Video Section -->
-        <h2>Watch the Video Below</h2>
+    <div class="container">
         
-        <!-- If using your YouTube Embed Link: -->
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/g71pjSCFyAU?rel=0" frameborder="0" allowfullscreen></iframe>
+        <!-- Custom VR Headset SVG Graphic -->
+        <div class="graphic-container">
+            <svg class="vr-svg" viewBox="0 0 24 24">
+                <path d="M4 6h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-3.5a2 2 0 0 0-1.5.67L13.67 18a2 2 0 0 1-3.34 0L9 16.67a2 2 0 0 0-1.5-.67H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+                <circle cx="7" cy="11" r="1" fill="currentColor"/>
+                <circle cx="17" cy="11" r="1" fill="currentColor"/>
+                <path d="M12 6v3"/>
+            </svg>
+        </div>
 
-        <!-- OR, if you decide to use the 100% anonymous Dropbox ?raw=1 link later, delete the iframe above and use this line instead: -->
-        <!-- <video width="100%" controls src="YOUR_DROPBOX_RAW_LINK_HERE"></video> -->
+        <!-- Main Typography Header -->
+        <header>
+            <h1>The Blueprint For <span class="highlight">Next-Gen VR Streaming</span> & Recording</h1>
+            <p class="subtitle">A minimalist guide to capturing zero-lag, ultra-high bitrate virtual production workflows.</p>
+        </header>
 
-        <hr>
+        <!-- Long Form Copy Section -->
+        <main>
+            <p>Virtual production and immersive 360-degree environments are changing the landscape of digital media. However, capturing high-fidelity VR content presents unique technical hurdles that traditional broadcast systems were never built to handle.</p>
+            
+            <p>From severe bitrate throttling on standard platforms to spatial audio tracking misalignment, creators constantly face glitches that break immersion. To truly scale a virtual production pipeline, you must optimize your hardware constraints, master hardware-level encoding pipelines, and structure your network for low-latency transmission.</p>
 
-        <p>Thank you for stopping by!</p>
-    </main>
+            <hr>
+
+            <h2>Core Technical Pillars</h2>
+            <p>Achieving standard-setting playback quality requires separating your workflow into three isolated infrastructure layers:</p>
+
+            <!-- Feature Card 1 -->
+            <div class="card">
+                <h3><span class="card-tag">Layer 01</span> Spatial Encoding</h3>
+                <p>Learn how to optimize spatial pixel distribution and render high-density projection matrices without overloading consumer-grade GPU architectures.</p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="card">
+                <h3><span class="card-tag">Layer 02</span> Bitrate Management</h3>
+                <p>Configure dedicated local NDI pathways and customized constant-bitrate presets to completely eradicate micro-stuttering and dropped frames during live recordings.</p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="card">
+                <h3><span class="card-tag">Layer 03</span> Real-time Rendering</h3>
+                <p>Synchronize external tracking hardware directly with unreal engines to minimize camera-to-render motion latency down to sub-millisecond ranges.</p>
+            </div>
+
+            <hr>
+
+            <!-- Video Section -->
+            <h2>A Look Inside the Workflow</h2>
+            <p>Watch the breakdown below to see exactly how these modular layers communicate in a live virtual studio environment.</p>
+            
+            <div class="video-wrapper">
+                <!-- Replace the src below with your YouTube embed link or your anonymous Dropbox raw link -->
+                <iframe src="https://www.youtube.com/embed/g71pjSCFyAU?rel=0" allowfullscreen></iframe>
+            </div>
+
+            <p>This systematic workflow removes the traditional guesswork out of high-end VR streaming, giving you a repeatable setup that runs flawlessly every single session.</p>
+
+            <!-- Call to Action -->
+            <div class="btn-container">
+                <a href="#" class="cta-btn">Access the Full Architecture File</a>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Distributed Anonymously • Pure Content Infrastructure</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
